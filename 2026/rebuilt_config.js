@@ -1,8 +1,8 @@
 var config_data = `
 {
   "dataFormat": "tsv",
-  "title": "Scouting PASS 2026",
-  "page_title": "REBUILT",
+  "title": "5962 Match Review Scouting 2026",
+  "page_title": "5962 REBUILT",
   "checkboxAs": "10",
   "prematch": [
     { "name": "Scouter Initials",
@@ -55,6 +55,18 @@ var config_data = `
       "min": 1,
       "max": 99999
     },
+    { "name": "Start Location",
+      "tooltip": "Where did the robot start? Click on the map AND select the named zone below.",
+      "code": "asl_zone",
+      "type": "radio",
+      "choices": {
+        "lt": "Under Left Trench<br>",
+        "rt": "Under Right Trench<br>",
+        "fh": "In Front of Hub<br>",
+        "ot": "Other"
+      },
+      "defaultValue": "ot"
+    },
     { "name": "Auto Start Location",
       "code": "as",
       "type": "clickable_image",
@@ -66,8 +78,30 @@ var config_data = `
     }
   ],
   "auton": [
+    { "name": "Auto Actions",
+      "tooltip": "Select all that apply during autonomous",
+      "code": "aasp",
+      "type": "bool",
+      "name": "Shoot Preload"
+    },
+    { "name": "Human Station Reload",
+      "code": "aahsr",
+      "type": "bool"
+    },
+    { "name": "Depot Reload",
+      "code": "aadr",
+      "type": "bool"
+    },
+    { "name": "Middle Reload",
+      "code": "aamr",
+      "type": "bool"
+    },
+    { "name": "Shoot Reload",
+      "code": "aasr",
+      "type": "bool"
+    },
     { "name": "Auto Shooting Location",
-      "code": "asl",
+      "code": "ashl",
       "type": "clickable_image",
       "filename": "2026/half_field.png",
       "dimensions": "7 10",
@@ -129,12 +163,31 @@ var config_data = `
       "altInc2": 5,
       "type": "counter"
     },
+    { "name": "Teleop Cycles",
+      "tooltip": "How many full cycles (pickup + score) did this robot complete in teleop?",
+      "code": "tcyc",
+      "expectedMax": 20,
+      "altInc1": 5,
+      "altInc2": 1,
+      "type": "counter"
+    },
     { "name": "Pass from Neutral Zone",
       "code": "pnz",
       "expectedMax": 250,
       "altInc1": 10,
       "altInc2": 5,
       "type": "counter"
+    },
+    { "name": "Pass Quality (Middle)",
+      "tooltip": "How effectively did they pass from the middle / neutral zone?",
+      "code": "pmq",
+      "type": "radio",
+      "choices": {
+        "vw": "Yes, very well<br>",
+        "ys": "Yes<br>",
+        "no": "No"
+      },
+      "defaultValue": "no"
     },
     { "name": "Pass from Opp Alliance Zone",
       "code": "poa",
@@ -165,7 +218,7 @@ var config_data = `
         "2": "Level 2<br>",
         "3": "Level 3<br>",
         "a": "Attempted<br>",
-        "x": "Not Attempted"
+        "x": "No Climb"
       },
       "defaultValue": "x"
     }
@@ -182,17 +235,16 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Defense Rating",
+    { "name": "Defense Played",
+      "tooltip": "Did this robot play defense? If yes, how well?",
       "code": "dr",
       "type": "radio",
       "choices": {
-        "b": "Below Average<br>",
-        "a": "Average<br>",
-        "g": "Good<br>",
-        "e": "Excellent<br>",
-        "x": "Did not play defense"
+        "g": "Yes (Good)<br>",
+        "b": "Yes (Not Good)<br>",
+        "n": "No Defense"
       },
-      "defaultValue": "x"
+      "defaultValue": "n"
     },
     { "name": "Speed Rating",
       "code": "sr",
@@ -204,14 +256,16 @@ var config_data = `
         "4": "4<br>",
         "5": "5 (fast)"
       },
-      "defaultValue":"3"
-    },
-    { "name": "Crossed Bump",
-      "code": "bmp",
-      "type": "bool"
+      "defaultValue": "3"
     },
     { "name": "Crossed Trench",
+      "tooltip": "Did the robot drive under the trench?",
       "code": "tre",
+      "type": "bool"
+    },
+    { "name": "Crossed Bump",
+      "tooltip": "Did the robot drive over the bump?",
+      "code": "bmp",
       "type": "bool"
     },
     { "name": "Died/Immobilized",
@@ -243,6 +297,7 @@ var config_data = `
       "max": 100
     },
     { "name": "Comments",
+      "tooltip": "Anything else noteworthy about this robot?",
       "code": "co",
       "type": "text",
       "size": 15,
