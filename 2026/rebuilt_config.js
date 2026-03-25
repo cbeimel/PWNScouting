@@ -132,18 +132,6 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Pickup from Depot",
-      "code": "afd",
-      "type": "bool"
-    },
-    { "name": "Pickup from Outpost",
-      "code": "afo",
-      "type": "bool"
-    },
-    { "name": "Pickup from Neutral Zone",
-      "code": "aff",
-      "type": "bool"
-    }
   ],
   "teleop": [
     { "name": "Shooting Locations",
