@@ -110,15 +110,15 @@ var config_data = `
       "code": "aahsr",
       "type": "bool"
     },
-    { "name": "Pickup from Depot",
+    { "name": "Depot Reload",
       "code": "aadr",
       "type": "bool"
     },
-    { "name": "Pickup from middle",
+    { "name": "Middle Reload",
       "code": "aamr",
       "type": "bool"
     },
-    { "name": "Shoot Reloaded Balls",
+    { "name": "Shoot Reload",
       "code": "aasr",
       "type": "bool"
     },
@@ -131,7 +131,7 @@ var config_data = `
         "x": "Not Attempted"
       },
       "defaultValue": "x"
-    },
+    }
   ],
   "teleop": [
     { "name": "Shooting Locations",
