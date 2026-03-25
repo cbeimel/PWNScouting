@@ -78,28 +78,6 @@ var config_data = `
     }
   ],
   "auton": [
-    { "name": "Auto Actions",
-      "tooltip": "Select all that apply during autonomous",
-      "code": "aasp",
-      "type": "bool",
-      "name": "Shoot Preload"
-    },
-    { "name": "Human Station Reload",
-      "code": "aahsr",
-      "type": "bool"
-    },
-    { "name": "Depot Reload",
-      "code": "aadr",
-      "type": "bool"
-    },
-    { "name": "Middle Reload",
-      "code": "aamr",
-      "type": "bool"
-    },
-    { "name": "Shoot Reload",
-      "code": "aasr",
-      "type": "bool"
-    },
     { "name": "Auto Shooting Location",
       "code": "ashl",
       "type": "clickable_image",
@@ -122,6 +100,27 @@ var config_data = `
       "altInc1": 10,
       "altInc2": 5,
       "type": "counter"
+    },
+    { "name": "Shoot Preload",
+      "tooltip": "Select all auto actions that apply",
+      "code": "aasp",
+      "type": "bool"
+    },
+    { "name": "Human Station Reload",
+      "code": "aahsr",
+      "type": "bool"
+    },
+    { "name": "Depot Reload",
+      "code": "aadr",
+      "type": "bool"
+    },
+    { "name": "Middle Reload",
+      "code": "aamr",
+      "type": "bool"
+    },
+    { "name": "Shoot Reload",
+      "code": "aasr",
+      "type": "bool"
     },
     { "name": "Climb (L1)",
       "code": "ac",
@@ -163,6 +162,20 @@ var config_data = `
       "altInc2": 5,
       "type": "counter"
     },
+    { "name": "Pass from Neutral Zone",
+      "code": "pnz",
+      "expectedMax": 250,
+      "altInc1": 10,
+      "altInc2": 5,
+      "type": "counter"
+    },
+    { "name": "Pass from Opp Alliance Zone",
+      "code": "poa",
+      "expectedMax": 250,
+      "altInc1": 10,
+      "altInc2": 5,
+      "type": "counter"
+    },
     { "name": "Teleop Cycles",
       "tooltip": "How many full cycles (pickup + score) did this robot complete in teleop?",
       "code": "tcyc",
@@ -171,30 +184,16 @@ var config_data = `
       "altInc2": 1,
       "type": "counter"
     },
-    { "name": "Pass from Neutral Zone",
-      "code": "pnz",
-      "expectedMax": 250,
-      "altInc1": 10,
-      "altInc2": 5,
-      "type": "counter"
-    },
-    { "name": "Pass Quality (Middle)",
-      "tooltip": "How effectively did they pass from the middle / neutral zone?",
+    { "name": "Passing Quality",
+      "tooltip": "Overall quality of this robot's passing game",
       "code": "pmq",
       "type": "radio",
       "choices": {
-        "vw": "Yes, very well<br>",
-        "ys": "Yes<br>",
-        "no": "No"
+        "vw": "Very Well<br>",
+        "ok": "Okay<br>",
+        "no": "No Passing"
       },
       "defaultValue": "no"
-    },
-    { "name": "Pass from Opp Alliance Zone",
-      "code": "poa",
-      "expectedMax": 250,
-      "altInc1": 10,
-      "altInc2": 5,
-      "type": "counter"
     },
     { "name": "Pickup from Depot",
       "code": "tfd",
