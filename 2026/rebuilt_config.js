@@ -110,15 +110,15 @@ var config_data = `
       "code": "aahsr",
       "type": "bool"
     },
-    { "name": "Depot Reload",
+    { "name": "Pickup from Depot",
       "code": "aadr",
       "type": "bool"
     },
-    { "name": "Middle Reload",
+    { "name": "Pickup from middle",
       "code": "aamr",
       "type": "bool"
     },
-    { "name": "Shoot Reload",
+    { "name": "Shoot Reloaded Balls",
       "code": "aasr",
       "type": "bool"
     },
